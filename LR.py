@@ -2,7 +2,7 @@
 """
 Created on Tue Dec 29 08:52:01 2020
 
-@author: -
+@author: - Saptarshi Mukhopadhaya
 """
 import pandas as pd
 import os
@@ -22,7 +22,7 @@ from sklearn.metrics import mean_squared_error,mean_absolute_error
 
 def set_window(days):
     return data['close'].shift(days)
-
+"Plot the graph"
 def plot_graph(y_test,y_pred_df):
     plt.figure(figsize=(12,5));
     plt.title('Comparzison actual vs predicted')
@@ -30,14 +30,15 @@ def plot_graph(y_test,y_pred_df):
     y_test.plot(legend=True) 
     plt.plot(y_pred_df)
     plt.show()
- 
+
+"Gives the the error"
 def get_error(y_test,y_pred):
     return np.sqrt(np.mean(np.square(((y_test - y_pred) / y_test)), axis=0))
 
 def get_score(model,x,y):
     return model.score(x,y)
     
-
+"Prediction model"
 def get_prediction(data,days):
     data_new = data[['time','close','volume','open']]
     data_new['time'] = pd.to_datetime(data_new['time'])
