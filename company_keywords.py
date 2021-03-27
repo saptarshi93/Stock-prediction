@@ -2,7 +2,7 @@
 """
 Created on Sat Mar 27 11:10:16 2021
 
-@author: Acer
+@author: Saptarshi Mukhopadhaya
 """
 
 key_words ={'Apple': ['Apple', 'IPod', 'MacOS', 'Mac App Store', 'IWork', 'IOS', 'IPad', 'App Store', 'Macintosh', 'Apple Store', 'ILife', 'TvOS', 'Apple Music', 'ICloud', 'Apple TV', 'IPhone', 'Apple Store', 'ITunes Store', 'Apple Watch', 'Apple Pay', 'WatchOS', 'IBooks Store', 'Arthur D. Levinson', 'Steve Wozniak', 'Steve Jobs', 'Jonathan Ive', 'Ronald Wayne', 'Jeff Williams', 'Luca Maestri', 'Tim Cook', 'FileMaker', 'Anobit', 'Beats Electronics', 'Braeburn Capital'],\
