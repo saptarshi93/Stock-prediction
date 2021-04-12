@@ -47,7 +47,7 @@ def correlation_raph(frame):
     fig.tight_layout()  # otherwise the right y-label is slightly clipped
     plt.show()
 
-'''Calculate sentiment with weighted apprach using vader'''  
+'''Calculate sentiment with weighted approch using vader'''  
 def weight_sentiment_scores(news): 
     count = 0
     polarity = 0
@@ -70,6 +70,7 @@ def weight_sentiment_scores(news):
     else:
         return 0.0
     
+'''Calculate sentiment with weighted approch using textblob'''    
 def weight_sentiment_textblob(news):
     count = 0
     polarity = 0
@@ -84,6 +85,7 @@ def weight_sentiment_textblob(news):
     else:
         return 0.0
     
+'''Calculate sentiment with weighted approch using pysentiment'''   
 def weight_sentiment_pysentiment(news):
     lm = ps.LM()
     count = 0
@@ -102,16 +104,18 @@ def weight_sentiment_pysentiment(news):
     else:
         return 0.0
     
-
+'''update the vader lexicon with news corpus'''
 def update_vader(vader,corpus):
     return vader.lexicon.update(corpus)
 
 sid_obj = SentimentIntensityAnalyzer() 
-    
+
+'''Scale the scores of the words in Sentibignomics'''
 for i in senti_bignomics.senti_bignomics:
     senti_bignomics.senti_bignomics[i] = 4*float(senti_bignomics.senti_bignomics[i][0])
 update_vader(sid_obj,senti_bignomics.senti_bignomics)    
 
+'''Calculate the error'''
 def get_error(y_test,y_pred):
     return np.sqrt(np.mean(np.square(((y_test - y_pred) / y_test)), axis=0))*100
 
@@ -129,7 +133,7 @@ def window_sentiment(data,window):
     #print(len(news_list))
     return data['news']   
 
-''''''    
+'''Get the prediction'''    
 def get_prediction(data):
     data_new = data
     
@@ -149,9 +153,8 @@ def get_prediction(data):
     plot_graph(y_test,y_pred_df)
     return get_error(y_test,y_pred)
 
-#def get_only_key_sen(sen)
 
-
+'''Sort the news by time and date'''
 def sort_news_by_time(frame,col):
     company = {}
     new_frame = {}
@@ -178,7 +181,7 @@ def sort_news_by_time(frame,col):
     return pd.DataFrame.from_dict(new_frame).iloc[1:,:]
 
 
-'''Calculate sentiment using vader'''
+'''Calculate sentiment using vader without weight'''
 def sentiment_scores(news): 
     count = 0
     polarity = 0
@@ -210,6 +213,7 @@ def prepare_data(path,column):
     path = path[['time','date',column]]
     return(path)
 
+'''Ignore this function'''
 def _get_sentiment_(frame,column):
     frame['time'] = pd.to_datetime(frame['time'])
     frame['sentiment'] = [sentiment_scores(i) for i in frame[column]]
@@ -238,8 +242,8 @@ def load_price_data(path):
     data = data.dropna()
     return data
 
-def update_vader(vader,corpus):
-    return vader.lexicon.update(corpus)
+#def update_vader(vader,corpus):
+ #   return vader.lexicon.update(corpus)
 
 def get_sentiment(frame):
     pol_list = []
