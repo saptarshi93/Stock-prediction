@@ -128,7 +128,7 @@ def data_cleaning(data,column):
 def find_all_fin_news(frame,fin_word):
     title_im = frame['title']
     date_im = frame['published']
-    msg_im = frame['messages']
+    msg_im = frame['message']
     full_im = frame['full-text']
     news_set = {}
     fin_title = []
@@ -152,7 +152,7 @@ def find_all_fin_news(frame,fin_word):
 def find_key(frame,fin_word):
     title = frame['title']
     time = frame['publication']
-    msg = frame['messages']
+    msg = frame['message']
     full = frame['full-text']
     statistics = {}
     for j in fin_word:  
