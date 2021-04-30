@@ -376,10 +376,10 @@ for pop in [1,2,7,12,17,22,27,32,37,42,47]:
     frame['rel_pol'] = window_sentiment(frame,pop)
     frame['rel_pol'] = frame['rel_pol'].fillna(0.0)
     frame = frame['2019-02-01':'2020-10-01']
-    frame,avg = avg_news(frame)
+    #frame,avg = avg_news(frame)
     print('PoP :',pop)
     
-    print('Avg news count within the pop:',avg)
+    #print('Avg news count within the pop:',avg)
     #frame = frame.head(441)
     #frame['rel_pol'] = frame['rel_pol']
     frame['rel_pol'] = frame['rel_pol']  / frame['rel_pol'].abs().max()*4
